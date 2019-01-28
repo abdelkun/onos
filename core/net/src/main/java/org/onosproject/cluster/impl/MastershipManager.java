@@ -170,15 +170,15 @@ public class MastershipManager
 
         CompletableFuture<MastershipEvent> eventFuture = null;
        NodeId notreChoix = new NodeId("172.17.0.7");
-        Boolean b = (notreChoix.compareTo(nodeId) == 1) ? true : false ;     
+        // Boolean b = (notreChoix.compareTo(nodeId) == 1) ? true : false ;     
         switch (role) {
             case MASTER:
                 eventFuture = store.setMaster(nodeId, deviceId);
                 break;
             case STANDBY:
-                if (b) {
+           //     if (b) {
                 eventFuture = store.setStandby(notreChoix, deviceId);
-		}
+		// }
 		break;
             case NONE:
                 eventFuture = store.relinquishRole(nodeId, deviceId);
